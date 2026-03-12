@@ -1,0 +1,53 @@
+.app { min-height: 100vh; display: flex; flex-direction: column; }
+
+/* Title */
+.title-screen {
+  min-height: 100vh;
+  display: flex; align-items: center; justify-content: center;
+  position: relative; overflow: hidden;
+  background: linear-gradient(180deg, #020b14 0%, #050e1a 100%);
+}
+.dna-bg { position: absolute; inset: 0; pointer-events: none; }
+.dna-strand {
+  position: absolute; top: -20%; width: 2px; height: 140%;
+  background: repeating-linear-gradient(
+    to bottom, #4ade8022 0px, #4ade8022 8px, transparent 8px, transparent 20px,
+    #60a5fa22 20px, #60a5fa22 28px, transparent 28px, transparent 40px
+  );
+  animation: dnaScroll 8s linear infinite;
+}
+@keyframes dnaScroll { to { transform: translateY(30%); } }
+
+.title-content {
+  position: relative; z-index: 1; text-align: center; padding: 24px;
+}
+.title-icon { font-size: 64px; margin-bottom: 12px; filter: drop-shadow(0 0 16px #4ade8088); }
+h1 { font-size: clamp(24px, 4vw, 40px); color: #4ade80; margin-bottom: 8px; }
+.title-sub { color: var(--muted); font-size: 16px; margin-bottom: 24px; }
+
+.title-progress { margin-bottom: 28px; }
+.progress-bar { height: 8px; background: var(--surface); border-radius: 4px; margin-bottom: 8px; overflow: hidden; }
+.progress-fill { height: 100%; background: linear-gradient(90deg, #4ade80, #60a5fa); border-radius: 4px; transition: width 0.5s; }
+.title-progress span { font-size: 14px; color: var(--muted); }
+
+.title-buttons { display: flex; flex-direction: column; gap: 10px; align-items: center; margin-bottom: 24px; }
+.btn {
+  padding: 12px 28px; border-radius: 8px; font-size: 16px; font-weight: 600;
+  cursor: pointer; transition: all 0.2s; border: none; min-width: 220px;
+}
+.btn-primary { background: #4ade80; color: #050e1a; }
+.btn-primary:hover { background: #86efac; transform: translateY(-2px); }
+.btn-secondary { background: var(--surface); color: var(--text); border: 1px solid var(--border); }
+.btn-secondary:hover { background: var(--surface2); border-color: #4ade80; }
+.btn-ghost { background: transparent; color: var(--muted); border: 1px solid var(--border); padding: 8px 18px; font-size: 15px; min-width: auto; }
+.btn-ghost:hover { color: var(--text); border-color: var(--muted); }
+.btn-sm { padding: 8px 18px; font-size: 15px; min-width: auto; }
+
+.stage-grid-title { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; max-width: 340px; margin: 0 auto; }
+.stage-chip {
+  width: 40px; height: 40px; border-radius: 8px; font-size: 14px; font-weight: 700;
+  background: var(--surface); color: var(--muted); border: 1px solid var(--border);
+  cursor: pointer; transition: all 0.2s;
+}
+.stage-chip:hover { border-color: #4ade80; color: #4ade80; }
+.stage-chip.cleared { background: #052a14; color: #4ade80; border-color: #4ade80; }
